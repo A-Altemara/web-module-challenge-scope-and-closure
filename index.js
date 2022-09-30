@@ -30,11 +30,11 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    Counter 2 is using a global variable set up, this can be accessed by all and could negitively impact the counter, Counter1 has lexically controlled variables so won't have this issue
   2. Which of the two uses a closure? How can you tell?
-  
+    Counter 1 has a closure, it has a function declared within it.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?  counter 2 would be useful when other functions need to increase the count variable besides just the counter 2 or there are muliple contexts to consider. Counter 1 is beneficial when more control is needed to prevent outside infuences on the counter, or when the code needs to be more modular.
 */
 
 // counter1 code
@@ -65,7 +65,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(/*Code Here*/){
-    /*Code Here*/
+    return Math.floor(Math.random() * 3);
 }
 
 
