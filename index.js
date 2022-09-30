@@ -111,9 +111,16 @@ For example: invoking getInningScore(inning) might return this object:
   */
 
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(aFunc) {
+  const final = {
+    Home: 0,
+    Away: 0
+    }
 
+    final.Away = final.Away + aFunc();
+    final.Home = final.Home + aFunc();
+
+    return final;
 }
 
 
