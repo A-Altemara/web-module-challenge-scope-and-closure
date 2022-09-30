@@ -61,6 +61,8 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+  A closure is the combination of a new function created within another function(lexical or local/ private environment).  The open bracket of the new function creates the closure as it initiates the new level of scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -81,9 +83,13 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+a. Where is closure used in this code? How can you tell? 
+  The anonymous function on line 71 is a closure.  It is initiating a new level of scope cutting off the previous level from that above it.  It's a function within a function and this is always a closure.
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? 
+  As dansRoll is a global variable it will always be called from outside the function and not stored.  The only thing that can change is the newRoll output. 
 c. What is the lexical scope of `newRoll`? 
+  The lexical scope of newRoll is the anonymous function only. Nothing else has access to the variable directly.
+It should be noted this code is not correct.  It does not generate a random number between 1 and 6, this generates a random number between 0 and 5.
 
 
 ### Task 3 - Stretch Goals
