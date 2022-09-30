@@ -83,8 +83,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(aFunc, aNum) {
+  let final = {
+    Home: 0,
+    Away: 0
+  };
+  
+  for(let i=0; i< aNum; i++) {
+    final.Away = final.Away + aFunc();
+    final.Home = final.Home + aFunc();
+    }
+
+  return final;
 }
 
 
