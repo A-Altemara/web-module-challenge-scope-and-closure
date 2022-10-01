@@ -18,7 +18,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-console.log('example task:', processFirstItem(['foo','bar'],function(str){return str+str}));
+console.log('example task:', processFirstItem(['foo', 'bar'], function (str) { return str + str }));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -41,7 +41,7 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
+    return count++;
   }
 }
 
@@ -64,8 +64,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    return Math.floor(Math.random() * 3);
+function inning(/*Code Here*/) {
+  return Math.floor(Math.random() * 3);
 }
 
 
@@ -81,18 +81,18 @@ Use the finalScore function below to do the following:
   "Home": 11,
   "Away": 5
 }
-*/ 
+*/
 
 function finalScore(aFunc, aNum) {
   let final = {
     Home: 0,
     Away: 0
   };
-  
-  for(let i=0; i< aNum; i++) {
+
+  for (let i = 0; i < aNum; i++) {
     final.Away = final.Away + aFunc();
     final.Home = final.Home + aFunc();
-    }
+  }
 
   return final;
 }
@@ -112,15 +112,15 @@ For example: invoking getInningScore(inning) might return this object:
 
 
 function getInningScore(aFunc) {
-  const final = {
+  const inning = {
     Home: 0,
     Away: 0
-    }
+  }
 
-    final.Away = final.Away + aFunc();
-    final.Home = final.Home + aFunc();
+  inning.Away = inning.Away + aFunc();
+  inning.Home = inning.Home + aFunc();
 
-    return final;
+  return inning;
 }
 
 
@@ -164,15 +164,30 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ] */
 // NOTE: There is no test associated with this code; if your output matches the given example, consider it complete!
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(aFunc, aFunc2, aNum) {
+  const score = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < aNum; i++) {
+    const inningScore = aFunc(aFunc2);
+    homeScore += inningScore.Home
+    awayScore += inningScore.Away
+    score.push('Inning ' + (i) + ': Away ' + inningScore.Away + ' - Home ' + inningScore.Home)
+  }
 
+  if (homeScore === awayScore) {
+    score.push('This game will require extra innings: Away ' + awayScore + ' - Home ' + homeScore)
+  } else {
+    score.push('Final Score: Away ' + awayScore + ' - Home ' + homeScore)
+  }
+  console.log(score);
+}
+scoreboard(getInningScore, inning, 9)
 
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
+function foo() {
   console.log('its working');
   return 'bar';
 }
